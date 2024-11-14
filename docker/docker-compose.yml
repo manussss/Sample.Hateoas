@@ -10,6 +10,7 @@ services:
     environment:
       - ConnectionStrings__SampleHateoasConnection=Server=sqlserver;Database=SampleHateoas;User id=sa;Password=sp-hateoas#789;TrustServerCertificate=True
       - ASPNETCORE_ENVIRONMENT=Development
+      - APPLY_MIGRATIONS=true
     networks:
       - app-network
     depends_on:
