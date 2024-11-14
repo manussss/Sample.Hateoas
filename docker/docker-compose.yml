@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  sample-hateoas:
+    build:
+      context: ../src
+      dockerfile: Sample.Hateoas.API/Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - ConnectionStrings__SampleHateoasConnection=Server=sqlserver;Database=SampleHateoas;User id=sa;Password=sp-hateoas#789;TrustServerCertificate=True
+      - ASPNETCORE_ENVIRONMENT=Development
+    networks:
+      - app-network
+    depends_on:
+      - sqlserver
+  
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=sp-hateoas#789
+      - MSSQL_DATABASE=SampleHateoas
+    ports:
+      - "1433:1433"
+    volumes:
+      - sql_data:/var/opt/mssql
+    networks:
+      - app-network
+
+volumes:
+  sql_data:
+
+networks:
+  app-network:
+    driver: bridge
