@@ -8,7 +8,7 @@ services:
     ports:
       - "8080:8080"
     environment:
-      - ConnectionStrings__SampleHateoasConnection=Server=sqlserver;Database=SampleHateoas;User id=sa;Password=sp-hateoas#789;TrustServerCertificate=True
+      - ConnectionStrings__SampleHateoasConnection=Server=sqlserver;Database=SampleHateoas;User id=sa;Password=SP-hateoas#789;TrustServerCertificate=True
       - ASPNETCORE_ENVIRONMENT=Development
       - APPLY_MIGRATIONS=true
     networks:
@@ -20,17 +20,17 @@ services:
     image: mcr.microsoft.com/mssql/server:2022-latest
     environment:
       - ACCEPT_EULA=Y
-      - MSSQL_SA_PASSWORD=sp-hateoas#789
+      - MSSQL_SA_PASSWORD=SP-hateoas#789
       - MSSQL_DATABASE=SampleHateoas
     ports:
       - "1433:1433"
     volumes:
-      - sql_data:/var/opt/mssql
+      - sql_data_sample_hateoas:/var/opt/mssql
     networks:
       - app-network
 
 volumes:
-  sql_data:
+  sql_data_sample_hateoas:
 
 networks:
   app-network:
