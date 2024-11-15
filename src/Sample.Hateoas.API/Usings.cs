@@ -1,0 +1,9 @@
+﻿global using Microsoft.EntityFrameworkCore;
+global using RiskFirst.Hateoas;
+global using Sample.Hateoas.API.Data.Repositories;
+global using Sample.Hateoas.API.Models;
+global using Sample.Hateoas.API.Data;
+global using Sample.Hateoas.API.Application.Dtos;
+global using RiskFirst.Hateoas.Models;
+global using Microsoft.AspNetCore.Mvc;
+global using Sample.Hateoas.API.Controllers;
